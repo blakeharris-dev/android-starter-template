@@ -10,6 +10,7 @@ pluginManagement {
         mavenCentral()
         gradlePluginPortal()
     }
+    includeBuild("build-logic")
 }
 plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
@@ -22,5 +23,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Android(Starter Template"
+rootProject.name = "Android Starter Template"
 include(":app")

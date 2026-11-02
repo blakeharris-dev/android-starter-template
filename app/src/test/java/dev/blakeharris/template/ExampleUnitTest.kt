@@ -1,4 +1,4 @@
-package dev.blakeharris.androidstartertemplate
+package dev.blakeharris.template
 
 import org.junit.Test
 
