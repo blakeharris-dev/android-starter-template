@@ -24,7 +24,17 @@ android {
     }
 }
 
+ksp {
+    // Validate every binding in the graph
+    arg("dagger.fullBindingGraphValidation", "ERROR")
+}
+
+
 dependencies {
+    implementation(project(":core:common"))
+    implementation(project(":core:database"))
+    implementation(project(":core:data"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
