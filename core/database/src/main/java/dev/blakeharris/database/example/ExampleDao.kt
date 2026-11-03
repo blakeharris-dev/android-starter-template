@@ -22,7 +22,7 @@ interface ExampleDao {
     @Query("SELECT * FROM examples ORDER BY created_at DESC")
     fun observeAll(): Flow<List<ExampleEntity>>
 
-    @Query("SELECT ONE FROM examples WHERE id = :id")
+    @Query("SELECT * FROM examples WHERE id = :id LIMIT 1")
     suspend fun getById(id: Long): ExampleEntity?
 
     // Update
@@ -33,6 +33,6 @@ interface ExampleDao {
     @Delete
     suspend fun delete(example: ExampleEntity): Int
 
-    @Delete
+    @Query("DELETE FROM examples WHERE id = :id")
     suspend fun deleteById(id: Long): Int
 }
