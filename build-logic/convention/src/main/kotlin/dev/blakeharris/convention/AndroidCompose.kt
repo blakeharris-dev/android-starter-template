@@ -14,5 +14,8 @@ internal fun Project.configureAndroidCompose(commonExtension: CommonExtension) {
 
         "implementation"(libs.library("androidx-compose-ui-tooling-preview"))
         "debugImplementation"(libs.library("androidx-compose-ui-tooling"))
+
+        "androidTestImplementation"(libs.library("androidx-compose-ui-test-junit4"))
+        "debugImplementation"(libs.library("androidx-compose-ui-test-manifest"))
     }
 }
