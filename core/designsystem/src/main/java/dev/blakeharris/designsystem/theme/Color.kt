@@ -1,4 +1,4 @@
-package dev.blakeharris.template.ui.theme
+package dev.blakeharris.designsystem.theme
 
 import androidx.compose.ui.graphics.Color
 
