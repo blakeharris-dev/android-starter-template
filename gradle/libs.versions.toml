@@ -21,6 +21,7 @@ room = "3.0.3"
 sqlite = "2.7.0"
 androidxTestRunner = "1.7.0"
 kotlinxCoroutines = "1.10.2"
+datastore = "1.2.0"
 
 [libraries]
 # build-logic
@@ -59,6 +60,9 @@ androidx-sqlite-bundled = { group = "androidx.sqlite", name = "sqlite-bundled", 
 
 # coroutines
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
+
+# Datastore
+androidx-datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore" }
 
 # Testing
 junit = { group = "junit", name = "junit", version.ref = "junit" }
