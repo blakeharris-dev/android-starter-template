@@ -3,32 +3,32 @@ package dev.blakeharris.logging
 import android.util.Log
 
 internal class LogcatLogger(
-    private val minPriority: Int
+    private val minLevel: LogLevel
 ) : Logger {
+    override fun log(entry: LogEntry) {
+        if (entry.level < minLevel) return
 
-    override fun debug(tag: String, message: () -> String) =
-        log(Log.DEBUG, tag, null, message)
-
-    override fun info(tag: String, message: () -> String) =
-        log(Log.INFO, tag, null, message)
-
-    override fun warn(tag: String, throwable: Throwable?, message: () -> String) =
-        log(Log.WARN, tag, throwable, message)
-
-    override fun error(tag: String, throwable: Throwable?, message: () -> String) =
-        log(Log.ERROR, tag, throwable, message)
-
-    private fun log(priority: Int, tag: String, throwable: Throwable?, message: () -> String) {
-        if (priority < minPriority) return
-
-        val text = buildString {
-            append(message())
-            if (throwable != null) {
-                append('\n')
-                append(Log.getStackTraceString(throwable))
-            }
+        val throwable = when (entry) {
+            is LogEntry.Warn -> entry.throwable
+            is LogEntry.Error -> entry.throwable
+            else -> null
         }
-        Log.println(priority, tag, text)
+
+        val text = if (throwable == null) {
+            entry.message
+        } else {
+            "${entry.message}\n${Log.getStackTraceString(throwable)}"
+        }
+
+        Log.println(entry.level.priority, entry.tag, text)
     }
 
+    private val LogLevel.priority: Int
+        get() = when (this) {
+            LogLevel.VERBOSE -> Log.VERBOSE
+            LogLevel.DEBUG -> Log.DEBUG
+            LogLevel.INFO -> Log.INFO
+            LogLevel.WARN -> Log.WARN
+            LogLevel.ERROR -> Log.ERROR
+        }
 }
