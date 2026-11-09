@@ -20,15 +20,15 @@ class AppPreferencesDataSource internal constructor(
         }
         .map { prefs ->
             AppPreferences(
-                exampleEnabled = prefs[Keys.EXAMPLE_ENABLED] ?: false
+                analyticsEnabled = prefs[Keys.ANALYTICS_ENABLED] ?: false
             )
         }
 
-    suspend fun setExampleEnabled(enabled: Boolean) = dataStore.edit { prefs ->
-        prefs[Keys.EXAMPLE_ENABLED] = enabled
+    suspend fun setAnalyticsEnabled(enabled: Boolean) {
+        dataStore.edit { prefs -> prefs[Keys.ANALYTICS_ENABLED] = enabled }
     }
 
     private object Keys {
-        val EXAMPLE_ENABLED = booleanPreferencesKey("example_enabled")
+        val ANALYTICS_ENABLED = booleanPreferencesKey("analytics_enabled")
     }
 }
