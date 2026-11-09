@@ -5,7 +5,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dev.blakeharris.analytics.AnalyticsLogger
-import dev.blakeharris.analytics.DebugAnalyticsLogger
+import dev.blakeharris.analytics.DebugAnalyticsSink
+import dev.blakeharris.analytics.DefaultAnalyticsLogger
 import dev.blakeharris.logging.Logger
 import javax.inject.Singleton
 
@@ -14,5 +15,6 @@ import javax.inject.Singleton
 object AnalyticsModule {
     @Provides
     @Singleton
-    fun provideAnalyticsLogger(logger: Logger): AnalyticsLogger = DebugAnalyticsLogger(logger)
+    fun provideAnalyticsLogger(logger: Logger): AnalyticsLogger =
+        DefaultAnalyticsLogger(sink = DebugAnalyticsSink(logger))
 }

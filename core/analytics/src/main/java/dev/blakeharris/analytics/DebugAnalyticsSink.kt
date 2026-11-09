@@ -2,11 +2,10 @@ package dev.blakeharris.analytics
 
 import dev.blakeharris.logging.Logger
 
-internal class DebugAnalyticsLogger(
+class DebugAnalyticsSink(
     private val logger: Logger
-) : AnalyticsLogger {
-
-    override fun logEvent(event: AnalyticsEvent) {
+) : AnalyticsSink {
+    override fun send(event: AnalyticsEvent) {
         logger.debug(TAG, event.toString())
     }
 
