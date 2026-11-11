@@ -11,3 +11,7 @@ android {
         buildConfig = true
     }
 }
+
+dependencies {
+    testImplementation(libs.robolectric)
+}

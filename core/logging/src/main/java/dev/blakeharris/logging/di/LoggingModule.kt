@@ -13,6 +13,13 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 internal object LoggingModule {
+
+    /**
+     * Logs everything in debug-flavoured builds, and only warnings and errors in release.
+     *
+     * To log to more than one place (e.g. crash reporting), provide a [Logger] that forwards each
+     * entry to several others.
+     */
     @Provides
     @Singleton
     fun provideLogger(): Logger = LogcatLogger(
