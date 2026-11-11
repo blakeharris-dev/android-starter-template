@@ -22,6 +22,10 @@ sqlite = "2.7.0"
 androidxTestRunner = "1.7.0"
 kotlinxCoroutines = "1.10.2"
 datastore = "1.2.0"
+robolectric = "4.17"
+roborazzi = "1.77.0"
+composablePreviewScanner = "0.9.3"
+testParameterInjector = "1.25"
 
 [libraries]
 # build-logic
@@ -64,6 +68,14 @@ kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-cor
 # Datastore
 androidx-datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore" }
 
+# Screenshot testing
+robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
+roborazzi = { group = "io.github.takahirom.roborazzi", name = "roborazzi", version.ref = "roborazzi" }
+roborazzi-compose = { group = "io.github.takahirom.roborazzi", name = "roborazzi-compose", version.ref = "roborazzi" }
+roborazzi-compose-preview-scanner-support = { group = "io.github.takahirom.roborazzi", name = "roborazzi-compose-preview-scanner-support", version.ref = "roborazzi" }
+composable-preview-scanner = { group = "io.github.sergio-sastre.ComposablePreviewScanner", name = "android", version.ref = "composablePreviewScanner" }
+test-parameter-injector = { group = "com.google.testparameterinjector", name = "test-parameter-injector", version.ref = "testParameterInjector" }
+
 # Testing
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
@@ -73,6 +85,16 @@ material = { group = "com.google.android.material", name = "material", version.r
 androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidxTestRunner" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
 
+[bundles]
+screenshot-testing = [
+    "robolectric",
+    "roborazzi",
+    "roborazzi-compose",
+    "roborazzi-compose-preview-scanner-support",
+    "composable-preview-scanner",
+    "test-parameter-injector",
+]
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
@@ -81,6 +103,8 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 androidx-room3 = { id = "androidx.room3", version.ref = "room" }
+roborazzi = { id = "io.github.takahirom.roborazzi", version.ref = "roborazzi" }
+convention-android-screenshot = { id = "convention.android.screenshot" }
 
 # Convention plugins (build-logic)
 convention-android-application = { id = "convention.android.application" }

@@ -43,6 +43,10 @@ gradlePlugin {
             id = "convention.android.compose"
             implementationClass = "AndroidComposeConventionPlugin"
         }
+        register("androidScreenshot") {
+            id = "convention.android.screenshot"
+            implementationClass = "AndroidScreenshotConventionPlugin"
+        }
         register("hilt") {
             id = "convention.hilt"
             implementationClass = "HiltConventionPlugin"
