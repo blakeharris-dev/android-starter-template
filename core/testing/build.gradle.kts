@@ -1,4 +1,5 @@
 plugins {
+    alias(libs.plugins.convention.android.compose)
     alias(libs.plugins.convention.android.library)
 }
 
@@ -7,7 +8,8 @@ android {
 }
 
 dependencies {
-    // `api` so modules using these helpers get JUnit, coroutines-test and the faked types.
+    api(libs.androidx.compose.ui.test.junit4)
+    api(libs.androidx.compose.ui.test.junit4.accessibility)
     api(libs.junit)
     api(libs.kotlinx.coroutines.test)
 
