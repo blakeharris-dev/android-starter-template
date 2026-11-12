@@ -31,7 +31,7 @@ internal object DataStoreModule {
         @IoDispatcher ioDispatcher: CoroutineDispatcher
     ): DataStore<Preferences> =
         PreferenceDataStoreFactory.create(
-            scope = scope,
+            scope = CoroutineScope(scope.coroutineContext + ioDispatcher),
             produceFile = { ctx.preferencesDataStoreFile(PREFS_FILE_NAME)}
         )
 
