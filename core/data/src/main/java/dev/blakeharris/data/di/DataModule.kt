@@ -9,6 +9,10 @@ import dev.blakeharris.data.example.ExampleRepositoryImpl
 import dev.blakeharris.database.example.ExampleDao
 import javax.inject.Singleton
 
+/**
+ * Provides repository singletons. Each `@Provides` returns the public interface so the `internal`
+ * implementation is never leaked.
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 internal object DataModule {

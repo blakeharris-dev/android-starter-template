@@ -13,11 +13,18 @@ import dev.blakeharris.database.AppDatabase
 import kotlinx.coroutines.CoroutineDispatcher
 import javax.inject.Singleton
 
+/**
+ * Provides the database and its DAOs. Only the DAOs are visible to other modules.
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {
     private const val DATABASE_NAME = "app.db"
 
+    /**
+     * Uses the bundled SQLite driver, so every device runs the same SQLite version, and runs
+     * queries on the IO dispatcher.
+     */
     @Provides
     @Singleton
     fun provideAppDatabase(

@@ -9,6 +9,9 @@ import dev.blakeharris.common.coroutines.IoDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 
+/**
+ * Provides the qualified [CoroutineDispatcher]s.
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 object DispatchersModule {

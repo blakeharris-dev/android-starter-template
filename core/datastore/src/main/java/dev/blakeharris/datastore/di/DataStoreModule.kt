@@ -17,12 +17,20 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import javax.inject.Singleton
 
+/**
+ * Provides the preferences DataStore and [AppPreferencesDataSource].
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 internal object DataStoreModule {
 
     private const val PREFS_FILE_NAME = "app_preferences"
 
+    /**
+     * One DataStore per file is allowed, so this must stay as a singleton. It runs in the app-wide
+     * scope on the IO dispatcher: it stays open for the app's lifetime, and its file reads and
+     * writes never touch the main thread.
+     */
     @Provides
     @Singleton
     fun provideAppPreferences(

@@ -8,6 +8,10 @@ import dev.blakeharris.database.AppDatabase
 import dev.blakeharris.database.example.ExampleDao
 import javax.inject.Singleton
 
+/**
+ * Provides each DAO from [AppDatabase]. DAOs are the only part of this module other modules see;
+ * the database itself stays `internal`.
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 object DaoModule {
