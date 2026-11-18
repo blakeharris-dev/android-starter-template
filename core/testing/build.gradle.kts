@@ -14,8 +14,6 @@ dependencies {
     api(libs.kotlinx.coroutines.test)
 
     api(project(":core:analytics"))
-    api(project(":core:data"))
-    api(project(":core:database"))
 
     // Compiled against, but not passed on: only modules applying
     // convention.android.screenshot get these, through that plugin.
