@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "dev.blakeharris.template.core.logging"
+    namespace = "dev.blakeharris.logging"
 
     buildFeatures {
         // Needed for BuildConfig.DEBUG, which picks the minimum log level.

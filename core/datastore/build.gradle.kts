@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "dev.blakeharris.template.core.datastore"
+    namespace = "dev.blakeharris.datastore"
 }
 
 dependencies {

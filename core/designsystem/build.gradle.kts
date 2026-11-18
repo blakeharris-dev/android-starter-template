@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "dev.blakeharris.template.core.designsystem"
+    namespace = "dev.blakeharris.designsystem"
 }
 
 dependencies {

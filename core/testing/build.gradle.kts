@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "dev.blakeharris.template.core.testing"
+    namespace = "dev.blakeharris.testing"
 }
 
 dependencies {

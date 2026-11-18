@@ -49,6 +49,6 @@ abstract class BaseScreenshotTest(
 
     private companion object {
         /** Stripped from snapshot folder paths, so they're relative to the module. */
-        const val PACKAGE_ROOT = "dev.blakeharris.template"
+        const val PACKAGE_ROOT = "dev.blakeharris"
     }
 }

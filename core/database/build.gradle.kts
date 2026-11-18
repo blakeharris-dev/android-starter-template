@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "dev.blakeharris.template.core.database"
+    namespace = "dev.blakeharris.database"
 }
 
 room3 {

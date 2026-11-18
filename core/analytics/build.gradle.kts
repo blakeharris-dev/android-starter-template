@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "dev.blakeharris.template.core.analytics"
+    namespace = "dev.blakeharris.analytics"
 }
 
 dependencies {
