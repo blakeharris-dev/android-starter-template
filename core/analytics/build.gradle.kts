@@ -11,4 +11,6 @@ dependencies {
     implementation(project(":core:common"))
     implementation(project(":core:datastore"))
     implementation(project(":core:logging"))
+
+    testImplementation(libs.kotlinx.coroutines.test)
 }
