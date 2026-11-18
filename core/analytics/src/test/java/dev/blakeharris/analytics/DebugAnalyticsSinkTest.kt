@@ -12,7 +12,7 @@ class DebugAnalyticsSinkTest {
     private val sink = DebugAnalyticsSink(logger)
 
     @Test
-    fun send_screenView_logsAllFieldsAtDebugLevel() {
+    fun `send screen view logs all fields at debug level`() {
         sink.send(
             AnalyticsEvent.ScreenView(screenName = "home", screenClass = "HomeScreen")
         )
@@ -26,7 +26,7 @@ class DebugAnalyticsSinkTest {
     }
 
     @Test
-    fun send_buttonClick_logsAllFieldsAtDebugLevel() {
+    fun `send button click logs all fields at debug level`() {
         sink.send(
             AnalyticsEvent.ButtonClick(
                 screenName = "home",
@@ -37,7 +37,7 @@ class DebugAnalyticsSinkTest {
         val expected = listOf(
             LogEntry.Debug(
                 tag = "Analytics",
-                message = "ButtonClick(screenName=home, buttonName=add_example, buttonType=FAB)",
+                message = "ButtonClick(screenName=home, buttonText=add_example, buttonType=FAB)",
             )
         )
         assertEquals(expected, entries)
