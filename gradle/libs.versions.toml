@@ -26,6 +26,8 @@ robolectric = "4.17"
 roborazzi = "1.77.0"
 composablePreviewScanner = "0.9.3"
 testParameterInjector = "1.25"
+spotless = "8.6.0"
+ktlint = "1.8.0"
 
 [libraries]
 # build-logic
@@ -86,6 +88,8 @@ material = { group = "com.google.android.material", name = "material", version.r
 androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidxTestRunner" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
 
+spotless-gradlePlugin = { group = "com.diffplug.spotless", name = "spotless-plugin-gradle", version.ref = "spotless" }
+
 [bundles]
 screenshot-testing = [
     "robolectric",
@@ -106,6 +110,7 @@ hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 androidx-room3 = { id = "androidx.room3", version.ref = "room" }
 roborazzi = { id = "io.github.takahirom.roborazzi", version.ref = "roborazzi" }
 convention-android-screenshot = { id = "convention.android.screenshot" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 
 # Convention plugins (build-logic)
 convention-android-application = { id = "convention.android.application" }

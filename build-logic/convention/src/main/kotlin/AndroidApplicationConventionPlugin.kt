@@ -1,5 +1,6 @@
 import com.android.build.api.dsl.ApplicationExtension
 import dev.blakeharris.convention.configureKotlinAndroid
+import dev.blakeharris.convention.configureSpotless
 import dev.blakeharris.convention.library
 import dev.blakeharris.convention.libs
 import dev.blakeharris.convention.versionInt
@@ -12,6 +13,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             pluginManager.apply("com.android.application")
+            configureSpotless()
 
             extensions.configure<ApplicationExtension> {
                 configureKotlinAndroid(this)

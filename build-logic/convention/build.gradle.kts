@@ -23,6 +23,7 @@ dependencies {
     // Everything else is applied by ID and comes from the root build's `apply false`.
     compileOnly(libs.android.gradlePlugin)
     compileOnly(libs.kotlin.gradlePlugin)
+    compileOnly(libs.spotless.gradlePlugin)
 }
 
 gradlePlugin {

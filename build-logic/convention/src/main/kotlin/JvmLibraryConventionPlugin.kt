@@ -1,4 +1,5 @@
 import dev.blakeharris.convention.configureKotlinJvm
+import dev.blakeharris.convention.configureSpotless
 import dev.blakeharris.convention.libs
 import dev.blakeharris.convention.library
 import org.gradle.api.Plugin
@@ -11,6 +12,7 @@ class JvmLibraryConventionPlugin : Plugin<Project> {
         with(target) {
             pluginManager.apply("org.jetbrains.kotlin.jvm")
             configureKotlinJvm()
+            configureSpotless()
 
             dependencies {
                 "testImplementation"(libs.library("junit"))
