@@ -21,16 +21,14 @@ import sergio.sastre.composable.preview.scanner.core.preview.ComposablePreview
 @RunWith(RobolectricTestParameterInjector::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @OptIn(ExperimentalRoborazziApi::class)
-abstract class BaseScreenshotTest(
-    private val preview: ComposablePreview<AndroidPreviewInfo>,
-) {
+abstract class BaseScreenshotTest(private val preview: ComposablePreview<AndroidPreviewInfo>) {
 
     @Test
     fun screenshot() {
         preview.captureRoboImage(
             filePath = screenshotFilePath(),
             roborazziOptions = RoborazziOptions(),
-            roborazziComposeOptions = preview.toRoborazziComposeOptions(),
+            roborazziComposeOptions = preview.toRoborazziComposeOptions()
         )
     }
 

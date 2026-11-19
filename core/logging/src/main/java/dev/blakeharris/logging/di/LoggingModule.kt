@@ -23,6 +23,6 @@ internal object LoggingModule {
     @Provides
     @Singleton
     fun provideLogger(): Logger = LogcatLogger(
-        minLevel = if (BuildConfig.DEBUG) LogLevel.VERBOSE else LogLevel.WARN,
+        minLevel = if (BuildConfig.DEBUG) LogLevel.VERBOSE else LogLevel.WARN
     )
 }

@@ -18,6 +18,5 @@ import javax.inject.Singleton
 internal object DataModule {
     @Provides
     @Singleton
-    fun provideExampleRepository(exampleDao: ExampleDao): ExampleRepository =
-        ExampleRepositoryImpl(exampleDao)
+    fun provideExampleRepository(exampleDao: ExampleDao): ExampleRepository = ExampleRepositoryImpl(exampleDao)
 }

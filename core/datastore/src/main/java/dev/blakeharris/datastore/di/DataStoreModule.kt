@@ -13,9 +13,9 @@ import dagger.hilt.components.SingletonComponent
 import dev.blakeharris.common.coroutines.ApplicationScope
 import dev.blakeharris.common.coroutines.IoDispatcher
 import dev.blakeharris.datastore.AppPreferencesDataSource
+import javax.inject.Singleton
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
-import javax.inject.Singleton
 
 /**
  * Provides the preferences DataStore and [AppPreferencesDataSource].
@@ -37,15 +37,13 @@ internal object DataStoreModule {
         @ApplicationContext ctx: Context,
         @ApplicationScope scope: CoroutineScope,
         @IoDispatcher ioDispatcher: CoroutineDispatcher
-    ): DataStore<Preferences> =
-        PreferenceDataStoreFactory.create(
-            scope = CoroutineScope(scope.coroutineContext + ioDispatcher),
-            produceFile = { ctx.preferencesDataStoreFile(PREFS_FILE_NAME)}
-        )
+    ): DataStore<Preferences> = PreferenceDataStoreFactory.create(
+        scope = CoroutineScope(scope.coroutineContext + ioDispatcher),
+        produceFile = { ctx.preferencesDataStoreFile(PREFS_FILE_NAME) }
+    )
 
     @Provides
     @Singleton
-    fun provideAppPreferencesDataSource(
-        dataStore: DataStore<Preferences>
-    ): AppPreferencesDataSource = AppPreferencesDataSource(dataStore)
+    fun provideAppPreferencesDataSource(dataStore: DataStore<Preferences>): AppPreferencesDataSource =
+        AppPreferencesDataSource(dataStore)
 }

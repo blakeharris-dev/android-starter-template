@@ -12,7 +12,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 @Preview(
     name = "Phone - Landscape",
     device = "spec:width=411dp,height=891dp,orientation=landscape,dpi=420",
-    showSystemUi = true,
+    showSystemUi = true
 )
 @Preview(name = "Unfolded Foldable", device = FOLDABLE, showSystemUi = true)
 annotation class PreviewContent

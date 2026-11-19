@@ -18,10 +18,7 @@ sealed interface LogEntry {
     /**
      * A [LogLevel.VERBOSE] entry.
      */
-    data class Verbose(
-        override val tag: String,
-        override val message: String
-    ) : LogEntry {
+    data class Verbose(override val tag: String, override val message: String) : LogEntry {
         override val level: LogLevel
             get() = LogLevel.VERBOSE
     }
@@ -29,10 +26,7 @@ sealed interface LogEntry {
     /**
      * A [LogLevel.DEBUG] entry.
      */
-    data class Debug(
-        override val tag: String,
-        override val message: String
-    ) : LogEntry {
+    data class Debug(override val tag: String, override val message: String) : LogEntry {
         override val level: LogLevel
             get() = LogLevel.DEBUG
     }
@@ -40,10 +34,7 @@ sealed interface LogEntry {
     /**
      * A [LogLevel.INFO] entry.
      */
-    data class Info(
-        override val tag: String,
-        override val message: String
-    ) : LogEntry {
+    data class Info(override val tag: String, override val message: String) : LogEntry {
         override val level: LogLevel
             get() = LogLevel.INFO
     }
@@ -53,11 +44,8 @@ sealed interface LogEntry {
      *
      * @property throwable The exception that caused the warning, if there was one.
      */
-    data class Warn(
-        override val tag: String,
-        override val message: String,
-        val throwable: Throwable? = null
-    ) : LogEntry {
+    data class Warn(override val tag: String, override val message: String, val throwable: Throwable? = null) :
+        LogEntry {
         override val level: LogLevel
             get() = LogLevel.WARN
     }
@@ -67,11 +55,8 @@ sealed interface LogEntry {
      *
      * @property throwable The exception that caused the error, if there was one.
      */
-    data class Error(
-        override val tag: String,
-        override val message: String,
-        val throwable: Throwable? = null
-    ) : LogEntry {
+    data class Error(override val tag: String, override val message: String, val throwable: Throwable? = null) :
+        LogEntry {
         override val level: LogLevel
             get() = LogLevel.ERROR
     }

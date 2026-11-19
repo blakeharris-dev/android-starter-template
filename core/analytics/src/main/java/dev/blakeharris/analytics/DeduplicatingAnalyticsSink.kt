@@ -10,9 +10,7 @@ package dev.blakeharris.analytics
  * Only screen views are compared: tapping a button twice is two real actions. Other events don't
  * reset the last screen view either, so `home`, a tap, then `home` again records one view.
  */
-internal class DeduplicatingAnalyticsSink(
-    private val delegate: AnalyticsSink
-) : AnalyticsSink {
+internal class DeduplicatingAnalyticsSink(private val delegate: AnalyticsSink) : AnalyticsSink {
 
     private var lastScreenView: AnalyticsEvent.ScreenView? = null
 

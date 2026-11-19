@@ -32,7 +32,7 @@ class LogcatLoggerTest {
             Log.DEBUG to "debug",
             Log.INFO to "info",
             Log.WARN to "warn",
-            Log.ERROR to "error",
+            Log.ERROR to "error"
         )
         val actual = ShadowLog.getLogsForTag(TAG).map { it.type to it.msg }
         assertEquals(expected, actual)
@@ -49,7 +49,7 @@ class LogcatLoggerTest {
 
         assertEquals(
             listOf("kept", "kept"),
-            ShadowLog.getLogsForTag(TAG).map { it.msg },
+            ShadowLog.getLogsForTag(TAG).map { it.msg }
         )
     }
 

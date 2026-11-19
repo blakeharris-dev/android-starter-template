@@ -18,62 +18,57 @@ class DefaultAnalyticsLoggerTest {
     private fun TestScope.createLogger(consent: Flow<Boolean>) = DefaultAnalyticsLogger(
         sink = { sent += it },
         consent = consent,
-        scope = backgroundScope,
+        scope = backgroundScope
     )
 
     @Test
-    fun `events are dropped before consent has loaded`() =
-        runTest(UnconfinedTestDispatcher()) {
-            val logger = createLogger(consent = MutableSharedFlow())
+    fun `events are dropped before consent has loaded`() = runTest(UnconfinedTestDispatcher()) {
+        val logger = createLogger(consent = MutableSharedFlow())
 
-            logger.logEvent(event)
+        logger.logEvent(event)
 
-            assertEquals(emptyList<AnalyticsEvent>(), sent)
-        }
-
-    @Test
-    fun `events are dropped without consent`() =
-        runTest(UnconfinedTestDispatcher()) {
-            val logger = createLogger(consent = MutableStateFlow(false))
-
-            logger.logEvent(event)
-
-            assertEquals(emptyList<AnalyticsEvent>(), sent)
-        }
+        assertEquals(emptyList<AnalyticsEvent>(), sent)
+    }
 
     @Test
-    fun `events are sent with consent`() =
-        runTest(UnconfinedTestDispatcher()) {
-            val logger = createLogger(consent = MutableStateFlow(true))
+    fun `events are dropped without consent`() = runTest(UnconfinedTestDispatcher()) {
+        val logger = createLogger(consent = MutableStateFlow(false))
 
-            logger.logEvent(event)
+        logger.logEvent(event)
 
-            assertEquals(listOf(event), sent)
-        }
-
-    @Test
-    fun `events are sent once consent is given`() =
-        runTest(UnconfinedTestDispatcher()) {
-            val consent = MutableStateFlow(false)
-            val logger = createLogger(consent)
-
-            logger.logEvent(event)
-            consent.value = true
-            logger.logEvent(event)
-
-            assertEquals(listOf(event), sent)
-        }
+        assertEquals(emptyList<AnalyticsEvent>(), sent)
+    }
 
     @Test
-    fun `events are dropped once consent is withdrawn`() =
-        runTest(UnconfinedTestDispatcher()) {
-            val consent = MutableStateFlow(true)
-            val logger = createLogger(consent)
+    fun `events are sent with consent`() = runTest(UnconfinedTestDispatcher()) {
+        val logger = createLogger(consent = MutableStateFlow(true))
 
-            logger.logEvent(event)
-            consent.value = false
-            logger.logEvent(event)
+        logger.logEvent(event)
 
-            assertEquals(listOf(event), sent)
-        }
+        assertEquals(listOf(event), sent)
+    }
+
+    @Test
+    fun `events are sent once consent is given`() = runTest(UnconfinedTestDispatcher()) {
+        val consent = MutableStateFlow(false)
+        val logger = createLogger(consent)
+
+        logger.logEvent(event)
+        consent.value = true
+        logger.logEvent(event)
+
+        assertEquals(listOf(event), sent)
+    }
+
+    @Test
+    fun `events are dropped once consent is withdrawn`() = runTest(UnconfinedTestDispatcher()) {
+        val consent = MutableStateFlow(true)
+        val logger = createLogger(consent)
+
+        logger.logEvent(event)
+        consent.value = false
+        logger.logEvent(event)
+
+        assertEquals(listOf(event), sent)
+    }
 }

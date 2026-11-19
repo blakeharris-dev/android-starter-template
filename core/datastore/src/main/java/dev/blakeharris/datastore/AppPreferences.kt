@@ -6,6 +6,4 @@ package dev.blakeharris.datastore
  * @property analyticsEnabled Whether the user has agreed to analytics. Defaults to `false` so
  * nothing is sent until the user opts in.
  */
-data class AppPreferences(
-    val analyticsEnabled: Boolean = false
-)
+data class AppPreferences(val analyticsEnabled: Boolean = false)

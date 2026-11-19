@@ -6,11 +6,11 @@ import dev.blakeharris.model.Example
 internal fun ExampleEntity.toDomain(): Example = Example(
     id = id,
     name = name,
-    createdAt = createdAt,
+    createdAt = createdAt
 )
 
 internal fun Example.toEntity(): ExampleEntity = ExampleEntity(
     id = id,
     name = name,
-    createdAt = createdAt,
+    createdAt = createdAt
 )

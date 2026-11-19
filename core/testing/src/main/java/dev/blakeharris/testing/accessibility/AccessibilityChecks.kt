@@ -34,11 +34,11 @@ val strictAccessibilityValidator: AccessibilityValidator
 @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
 fun <R : TestRule, A : ComponentActivity> AndroidComposeTestRule<R, A>.performAccessibilityChecks(
     validator: AccessibilityValidator = strictAccessibilityValidator,
-    content: @Composable () -> Unit,
+    content: @Composable () -> Unit
 ) {
     assumeTrue(
         "Accessibility checks need API 34+",
-        Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE,
+        Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE
     )
     enableAccessibilityChecks(validator)
     setContent(content)

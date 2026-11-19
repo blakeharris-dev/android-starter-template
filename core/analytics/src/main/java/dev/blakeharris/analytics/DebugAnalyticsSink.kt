@@ -9,9 +9,7 @@ import dev.blakeharris.logging.Logger
  * nothing is written in release. Nothing leaves the device.
  *
  */
-class DebugAnalyticsSink(
-    private val logger: Logger
-) : AnalyticsSink {
+class DebugAnalyticsSink(private val logger: Logger) : AnalyticsSink {
 
     override fun send(event: AnalyticsEvent) {
         logger.debug(TAG, event.toString())

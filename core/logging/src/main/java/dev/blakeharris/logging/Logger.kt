@@ -41,12 +41,10 @@ fun interface Logger {
     /**
      * Logs a [LogEntry.Warn]
      */
-    fun warn(tag: String, message: String, throwable: Throwable? = null) =
-        log(LogEntry.Warn(tag, message, throwable))
+    fun warn(tag: String, message: String, throwable: Throwable? = null) = log(LogEntry.Warn(tag, message, throwable))
 
     /**
      * Logs a [LogEntry.Error]
      */
-    fun error(tag: String, message: String, throwable: Throwable? = null) =
-        log(LogEntry.Error(tag, message, throwable))
+    fun error(tag: String, message: String, throwable: Throwable? = null) = log(LogEntry.Error(tag, message, throwable))
 }

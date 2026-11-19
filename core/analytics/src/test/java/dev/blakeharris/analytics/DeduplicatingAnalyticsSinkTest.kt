@@ -19,7 +19,7 @@ class DeduplicatingAnalyticsSinkTest {
     private val tap = AnalyticsEvent.ButtonClick(
         screenName = "home",
         buttonText = "add_example",
-        buttonType = AnalyticsEvent.ButtonClick.ButtonType.FAB,
+        buttonType = AnalyticsEvent.ButtonClick.ButtonType.FAB
     )
 
     @Test

@@ -21,7 +21,7 @@ class LoggerTest {
             LogEntry.Debug("Tag", "debug"),
             LogEntry.Info("Tag", "info"),
             LogEntry.Warn("Tag", "warn", null),
-            LogEntry.Error("Tag", "error", null),
+            LogEntry.Error("Tag", "error", null)
         )
         assertEquals(expected, entries)
     }

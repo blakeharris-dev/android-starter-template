@@ -17,10 +17,7 @@ sealed interface AnalyticsEvent {
      * @property screenName The name of the screen shown, e.g. "home"
      * @property screenClass The code that showed the screen, e.g. "HomeScreen"
      */
-    data class ScreenView(
-        val screenName: String,
-        val screenClass: String
-    ) : AnalyticsEvent
+    data class ScreenView(val screenName: String, val screenClass: String) : AnalyticsEvent
 
     /**
      * The user tapped a button or another control worth tracking.
@@ -29,11 +26,8 @@ sealed interface AnalyticsEvent {
      * @property buttonText What the control does, e.g. "add_user"
      * @property buttonType What kind of control is it
      */
-    data class ButtonClick(
-        val screenName: String,
-        val buttonText: String,
-        val buttonType: ButtonType
-    ) : AnalyticsEvent {
+    data class ButtonClick(val screenName: String, val buttonText: String, val buttonType: ButtonType) :
+        AnalyticsEvent {
 
         /**
          * The kind of control tapped. Required, so every call site chooses deliberately.

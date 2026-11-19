@@ -18,7 +18,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro",
+                "proguard-rules.pro"
             )
         }
     }
@@ -28,7 +28,6 @@ ksp {
     // Validate every binding in the graph
     arg("dagger.fullBindingGraphValidation", "ERROR")
 }
-
 
 dependencies {
     implementation(project(":core:analytics"))

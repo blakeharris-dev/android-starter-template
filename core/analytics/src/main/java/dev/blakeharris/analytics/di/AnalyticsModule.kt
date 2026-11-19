@@ -11,10 +11,10 @@ import dev.blakeharris.analytics.DefaultAnalyticsLogger
 import dev.blakeharris.common.coroutines.ApplicationScope
 import dev.blakeharris.datastore.AppPreferencesDataSource
 import dev.blakeharris.logging.Logger
+import javax.inject.Singleton
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
-import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -25,12 +25,11 @@ object AnalyticsModule {
         logger: Logger,
         preferences: AppPreferencesDataSource,
         @ApplicationScope scope: CoroutineScope
-    ): AnalyticsLogger =
-        DefaultAnalyticsLogger(
-            sink = DeduplicatingAnalyticsSink(DebugAnalyticsSink(logger)),
-            consent = preferences.preferences
-                .map { it.analyticsEnabled }
-                .distinctUntilChanged(),
-            scope = scope
-        )
+    ): AnalyticsLogger = DefaultAnalyticsLogger(
+        sink = DeduplicatingAnalyticsSink(DebugAnalyticsSink(logger)),
+        consent = preferences.preferences
+            .map { it.analyticsEnabled }
+            .distinctUntilChanged(),
+        scope = scope
+    )
 }

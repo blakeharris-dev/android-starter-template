@@ -31,13 +31,13 @@ class DebugAnalyticsSinkTest {
             AnalyticsEvent.ButtonClick(
                 screenName = "home",
                 buttonText = "add_example",
-                buttonType = AnalyticsEvent.ButtonClick.ButtonType.FAB,
-            ),
+                buttonType = AnalyticsEvent.ButtonClick.ButtonType.FAB
+            )
         )
         val expected = listOf(
             LogEntry.Debug(
                 tag = "Analytics",
-                message = "ButtonClick(screenName=home, buttonText=add_example, buttonType=FAB)",
+                message = "ButtonClick(screenName=home, buttonText=add_example, buttonType=FAB)"
             )
         )
         assertEquals(expected, entries)

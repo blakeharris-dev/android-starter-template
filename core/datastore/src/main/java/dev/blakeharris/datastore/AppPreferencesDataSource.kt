@@ -17,9 +17,7 @@ import kotlinx.coroutines.flow.map
  * one DataStore file.
  *
  */
-class AppPreferencesDataSource internal constructor(
-    private val dataStore: DataStore<Preferences>
-) {
+class AppPreferencesDataSource internal constructor(private val dataStore: DataStore<Preferences>) {
 
     /**
      * The current settings. Emits again whenever any setting changes.
@@ -28,8 +26,11 @@ class AppPreferencesDataSource internal constructor(
      */
     val preferences: Flow<AppPreferences> = dataStore.data
         .catch { error ->
-            if (error is IOException) emit(emptyPreferences())
-            else throw error
+            if (error is IOException) {
+                emit(emptyPreferences())
+            } else {
+                throw error
+            }
         }
         .map { prefs ->
             AppPreferences(

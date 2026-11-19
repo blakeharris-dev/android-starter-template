@@ -17,11 +17,8 @@ import kotlinx.coroutines.flow.stateIn
  * @param scope A scope that lives as long as the app, used to keep watching [consent]
 
  */
-internal class DefaultAnalyticsLogger(
-    private val sink: AnalyticsSink,
-    consent: Flow<Boolean>,
-    scope: CoroutineScope
-) : AnalyticsLogger {
+internal class DefaultAnalyticsLogger(private val sink: AnalyticsSink, consent: Flow<Boolean>, scope: CoroutineScope) :
+    AnalyticsLogger {
 
     private val isEnabled = consent.stateIn(
         scope = scope,

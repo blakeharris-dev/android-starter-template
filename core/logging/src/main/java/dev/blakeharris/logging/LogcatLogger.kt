@@ -10,9 +10,7 @@ import android.util.Log
  *
  * @param minLevel The least severe level that's written.
  */
-internal class LogcatLogger(
-    private val minLevel: LogLevel
-) : Logger {
+internal class LogcatLogger(private val minLevel: LogLevel) : Logger {
 
     override fun log(entry: LogEntry) {
         if (entry.level < minLevel) return
