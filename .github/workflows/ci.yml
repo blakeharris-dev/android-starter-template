@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Cancel an in-progress run when a newer commit is pushed to the same branch.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 21
+
+      # Caches Gradle dependencies and build outputs between runs.
+      - uses: gradle/actions/setup-gradle@v5
+
+      - name: Check, build and test
+        # --continue reports every failure in one run, rather than stopping at the first.
+        run: ./gradlew spotlessCheck detekt assembleDebug testDebugUnitTest --continue
+
+      - name: Upload reports
+        if: failure()
+        uses: actions/upload-artifact@v5
+        with:
+          name: reports
+          path: '**/build/reports/'
