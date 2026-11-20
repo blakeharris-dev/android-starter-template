@@ -1,4 +1,5 @@
 import com.android.build.api.dsl.ApplicationExtension
+import dev.blakeharris.convention.configureDetekt
 import dev.blakeharris.convention.configureKotlinAndroid
 import dev.blakeharris.convention.configureSpotless
 import dev.blakeharris.convention.library
@@ -14,6 +15,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
         with(target) {
             pluginManager.apply("com.android.application")
             configureSpotless()
+            configureDetekt()
 
             extensions.configure<ApplicationExtension> {
                 configureKotlinAndroid(this)

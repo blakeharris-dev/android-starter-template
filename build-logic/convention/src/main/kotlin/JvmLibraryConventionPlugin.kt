@@ -1,3 +1,4 @@
+import dev.blakeharris.convention.configureDetekt
 import dev.blakeharris.convention.configureKotlinJvm
 import dev.blakeharris.convention.configureSpotless
 import dev.blakeharris.convention.libs
@@ -13,6 +14,7 @@ class JvmLibraryConventionPlugin : Plugin<Project> {
             pluginManager.apply("org.jetbrains.kotlin.jvm")
             configureKotlinJvm()
             configureSpotless()
+            configureDetekt()
 
             dependencies {
                 "testImplementation"(libs.library("junit"))

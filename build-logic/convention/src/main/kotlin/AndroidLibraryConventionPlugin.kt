@@ -1,4 +1,5 @@
 import com.android.build.api.dsl.LibraryExtension
+import dev.blakeharris.convention.configureDetekt
 import dev.blakeharris.convention.configureKotlinAndroid
 import dev.blakeharris.convention.configureSpotless
 import dev.blakeharris.convention.libs
@@ -13,6 +14,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
         with(target) {
             pluginManager.apply("com.android.library")
             configureSpotless()
+            configureDetekt()
 
             extensions.configure<LibraryExtension> {
                 configureKotlinAndroid(this)

@@ -1,0 +1,16 @@
+naming:
+  FunctionNaming:
+    # Composable functions are PascalCase by convention.
+    ignoreAnnotated: ['Composable']
+
+complexity:
+  LongParameterList:
+    # Composables commonly take many parameters with defaults (modifier, colours, callbacks).
+    ignoreDefaultParameters: true
+    ignoreAnnotated: ['Composable']
+
+style:
+  MagicNumber:
+    # Theme values (Color(0xFF...), 16.sp) are declared as properties.
+    ignorePropertyDeclaration: true
+    excludes: ['**/test/**', '**/androidTest/**']

@@ -28,6 +28,7 @@ composablePreviewScanner = "0.9.3"
 testParameterInjector = "1.25"
 spotless = "8.6.0"
 ktlint = "1.8.0"
+detekt = "2.0.0-alpha.6"
 
 [libraries]
 # build-logic
@@ -89,6 +90,7 @@ androidx-test-runner = { group = "androidx.test", name = "runner", version.ref =
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
 
 spotless-gradlePlugin = { group = "com.diffplug.spotless", name = "spotless-plugin-gradle", version.ref = "spotless" }
+detekt-gradlePlugin = { group = "dev.detekt", name = "detekt-gradle-plugin", version.ref = "detekt" }
 
 [bundles]
 screenshot-testing = [
@@ -111,6 +113,7 @@ androidx-room3 = { id = "androidx.room3", version.ref = "room" }
 roborazzi = { id = "io.github.takahirom.roborazzi", version.ref = "roborazzi" }
 convention-android-screenshot = { id = "convention.android.screenshot" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
+detekt = { id = "dev.detekt", version.ref = "detekt" }
 
 # Convention plugins (build-logic)
 convention-android-application = { id = "convention.android.application" }

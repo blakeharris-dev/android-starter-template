@@ -9,4 +9,5 @@ plugins {
     alias(libs.plugins.androidx.room3) apply false
     alias(libs.plugins.roborazzi) apply false
     alias(libs.plugins.spotless) apply false
+    alias(libs.plugins.detekt) apply false
 }
