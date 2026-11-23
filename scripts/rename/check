@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Shows what renaming the template would change, without changing anything.
+#
+# Usage: ./scripts/rename/check <application-id> "<App Name>"
+# Then:  ./scripts/rename/apply <application-id> "<App Name>"
+exec bash "$(dirname "$0")/rename.sh" --dry-run "$@"

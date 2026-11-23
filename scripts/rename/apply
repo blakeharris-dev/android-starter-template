@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Renames the template for a new app. Run ./scripts/rename/check with the same arguments first.
+#
+# Usage: ./scripts/rename/apply <application-id> "<App Name>"
+exec bash "$(dirname "$0")/rename.sh" "$@"
