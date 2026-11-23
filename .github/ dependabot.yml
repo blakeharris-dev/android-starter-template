@@ -1,0 +1,54 @@
+version: 2
+
+updates:
+  - package-ecosystem: gradle
+    directory: "/"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 10
+    # Produces "build(deps): bump ...", which passes the conventional commit check.
+    commit-message:
+      prefix: build
+      include: scope
+    groups:
+      # Must move together: KSP and the Compose compiler are tied to the Kotlin version.
+      kotlin:
+        patterns:
+          - "org.jetbrains.kotlin*"
+          - "com.google.devtools.ksp*"
+      agp:
+        patterns:
+          - "com.android.tools.build*"
+          - "com.android.application*"
+          - "com.android.library*"
+      compose:
+        patterns:
+          - "androidx.compose*"
+      hilt:
+        patterns:
+          - "com.google.dagger*"
+          - "androidx.hilt*"
+      room:
+        patterns:
+          - "androidx.room3*"
+          - "androidx.sqlite*"
+      screenshot-testing:
+        patterns:
+          - "io.github.takahirom.roborazzi*"
+          - "org.robolectric*"
+          - "io.github.sergio-sastre*"
+          - "com.google.testparameterinjector*"
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: build
+      include: scope
+    groups:
+      # Major versions get their own PR, so breaking changes are reviewed separately.
+      actions:
+        update-types:
+          - minor
+          - patch
