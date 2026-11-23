@@ -1,0 +1,16 @@
+# Conventional commit settings for cocogitto: https://docs.cocogitto.io
+#
+# CI checks every commit since the latest tag with `cog check --from-latest-tag`.
+# Run the same check locally with `cog check -l`.
+
+tag_prefix = "v"
+branch_whitelist = ["main"]
+ignore_merge_commits = true
+
+# Install once per clone with `cog install-hook --all`. Rejects a commit whose message isn't
+# a conventional commit, before it's made.
+[git_hooks.commit-msg]
+script = """#!/bin/sh
+set -e
+cog verify --file "$1"
+"""
