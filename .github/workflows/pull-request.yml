@@ -1,0 +1,25 @@
+name: Pull request
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+
+# A new push to the same PR cancels the run still going for the previous one.
+concurrency:
+  group: pr-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  linting:
+    name: Linting
+    uses: ./.github/workflows/linting.yml
+
+  testing:
+    name: Testing
+    uses: ./.github/workflows/testing.yml
