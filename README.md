@@ -1,5 +1,11 @@
 # Android Starter Template
 
+[![CI](https://github.com/blakeharris-dev/android-starter-template/actions/workflows/main.yml/badge.svg)](https://github.com/blakeharris-dev/android-starter-template/actions/workflows/main.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.2.10-7F52FF.svg?logo=kotlin&logoColor=white)](https://kotlinlang.org)
+[![Min SDK](https://img.shields.io/badge/minSdk-24-3DDC84.svg?logo=android&logoColor=white)](https://developer.android.com/about/dashboards)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-FE5196.svg?logo=conventionalcommits&logoColor=white)](https://www.conventionalcommits.org)
+
 A multi-module Android starter built with Kotlin, Jetpack Compose, and Hilt. Gradle convention
 plugins, core modules, testing tools, and CI are already setup, so a new app can start on features
 straight away.
